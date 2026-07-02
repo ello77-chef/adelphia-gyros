@@ -3,12 +3,19 @@ export type MenuItem = {
   description: string;
   price: string;
   tags?: string[];
+  /**
+   * Pfad zu einem Foto unter /public (z.B. "/dishes/gyros-pita.jpg").
+   * Solange kein Bild hinterlegt ist, zeigt die Karte einen Platzhalter.
+   */
+  image?: string;
 };
 
 export type MenuCategory = {
   id: string;
   title: string;
   subtitle: string;
+  /** Emoji-Icon für die Kategorie-Leiste (später durch Fotos ersetzbar). */
+  icon: string;
   items: MenuItem[];
 };
 
@@ -17,6 +24,7 @@ export const menu: MenuCategory[] = [
     id: "gyros",
     title: "Gyros & Souvlaki",
     subtitle: "Vom Spieß & Grill — unser Herzstück",
+    icon: "🥙",
     items: [
       {
         name: "Gyros Pita",
@@ -50,6 +58,7 @@ export const menu: MenuCategory[] = [
     id: "meze",
     title: "Meze & Vorspeisen",
     subtitle: "Zum Teilen — oder ganz für dich",
+    icon: "🫒",
     items: [
       {
         name: "Tzatziki",
@@ -81,6 +90,7 @@ export const menu: MenuCategory[] = [
     id: "salate",
     title: "Salate",
     subtitle: "Frisch aus dem Mittelmeer-Garten",
+    icon: "🥗",
     items: [
       {
         name: "Choriatiki (Bauernsalat)",
@@ -100,6 +110,7 @@ export const menu: MenuCategory[] = [
     id: "getraenke",
     title: "Getränke",
     subtitle: "Von Frappé bis Ouzo",
+    icon: "🍹",
     items: [
       {
         name: "Frappé",

@@ -10,21 +10,21 @@ const features = [
     text: "Tzatziki, Saucen und Meze — alles nach Familienrezept zubereitet.",
   },
   {
-    icon: "👨‍👩‍👧‍👦",
-    title: "Familiär",
-    text: "„Adelphia“ heißt Geschwister — bei uns bist du Teil der Familie.",
+    icon: "📣",
+    title: "„Kalispera!“",
+    text: "Wenn es durch die Gasse schallt, weißt du: Der Chef ist da — und der Spieß dreht sich.",
   },
 ];
 
 export default function About() {
   return (
-    <section id="ueber-uns" className="scroll-mt-20 bg-white py-20">
+    <section id="ueber-uns" className="scroll-mt-20 bg-aegean-50 py-20">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 md:grid-cols-2">
         <div>
-          <p className="font-semibold uppercase tracking-widest text-terracotta-500">
+          <p className="font-bold uppercase tracking-[0.25em] text-aegean-400">
             Unsere Geschichte
           </p>
-          <h2 className="mt-2 font-display text-4xl font-bold text-aegean-900">
+          <h2 className="mt-2 font-display text-4xl font-bold text-aegean-900 sm:text-5xl">
             Ein Stück Griechenland
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-aegean-900/75">
@@ -43,13 +43,13 @@ export default function About() {
           {features.map((f) => (
             <div
               key={f.title}
-              className="flex gap-4 rounded-2xl border border-sand-200 bg-sand-50 p-5"
+              className="flex gap-4 rounded-2xl border border-aegean-100 bg-white p-5 shadow-sm"
             >
               <span className="text-3xl" aria-hidden>
                 {f.icon}
               </span>
               <div>
-                <h3 className="font-display text-xl font-semibold text-aegean-900">
+                <h3 className="font-display text-xl font-bold text-aegean-900">
                   {f.title}
                 </h3>
                 <p className="mt-1 text-aegean-900/70">{f.text}</p>

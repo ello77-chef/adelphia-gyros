@@ -1,32 +1,61 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand palette — Aegean blue, warm terracotta, olive & sand */
-  --color-aegean-50: #eef5fb;
-  --color-aegean-100: #d5e6f5;
-  --color-aegean-500: #1e6fb8;
-  --color-aegean-600: #175a97;
-  --color-aegean-700: #124876;
-  --color-aegean-900: #0b2e4d;
+  /* Greek flag inspired palette — deep Aegean blue on white */
+  --color-aegean-50: #eef5fc;
+  --color-aegean-100: #d8e8f8;
+  --color-aegean-200: #b3d1f0;
+  --color-aegean-400: #3b82c4;
+  --color-aegean-500: #1268b3;
+  --color-aegean-600: #0d5eaf; /* Greek flag blue */
+  --color-aegean-700: #0a4c8e;
+  --color-aegean-800: #083d72;
+  --color-aegean-900: #062e57;
 
-  --color-terracotta-400: #e08a5a;
-  --color-terracotta-500: #d1743f;
-  --color-terracotta-600: #b85e2d;
-
-  --color-olive-500: #7d8a4f;
-  --color-olive-600: #64723c;
-
-  --color-sand-50: #fbf7f0;
-  --color-sand-100: #f4ecdd;
-  --color-sand-200: #e9dcc4;
+  --color-sky-soft: #7fb3e3;
+  --color-cream: #f7f9fc;
 
   --font-display: var(--font-playfair);
   --font-sans: var(--font-inter);
+
+  --animate-pop-in: pop-in 0.7s cubic-bezier(0.22, 1.2, 0.36, 1) both;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-spin-slow: spin-slow 40s linear infinite;
+
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes pop-in {
+    0% {
+      opacity: 0;
+      transform: translateY(28px) scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-14px);
+    }
+  }
 }
 
 :root {
-  --background: #fbf7f0;
-  --foreground: #23201a;
+  --background: #ffffff;
+  --foreground: #0f1c2b;
 }
 
 html {
@@ -39,7 +68,31 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
-/* Subtle Greek-key inspired divider */
 .text-balance {
   text-wrap: balance;
+}
+
+/* Staggered entrance delays for the hero pop-in */
+.pop-delay-1 {
+  animation-delay: 0.1s;
+}
+.pop-delay-2 {
+  animation-delay: 0.25s;
+}
+.pop-delay-3 {
+  animation-delay: 0.4s;
+}
+.pop-delay-4 {
+  animation-delay: 0.55s;
+}
+.pop-delay-5 {
+  animation-delay: 0.7s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pop-in,
+  .animate-float,
+  .animate-spin-slow {
+    animation: none;
+  }
 }

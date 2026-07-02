@@ -1,6 +1,10 @@
 export const restaurant = {
   name: "Adelphia Gyros",
+  greeting: "Kalispera!",
+  claim: "Eat Greek. Feel Great.",
   tagline: "Authentische griechische Küche",
+  // TODO: Durch den echten foodora-Shop-Link ersetzen.
+  foodoraUrl: "https://www.foodora.de/restaurant/adelphia-gyros",
   description:
     "Bei Adelphia Gyros dreht sich alles um ehrliche griechische Küche: mariniertes Gyros vom Spieß, hausgemachte Saucen und Meze wie bei Yiayia. Familiär, frisch und mit viel Liebe zubereitet.",
   phone: "+49 30 1234567",
