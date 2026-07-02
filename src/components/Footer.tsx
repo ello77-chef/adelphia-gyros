@@ -5,7 +5,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-aegean-900 py-12 text-white">
+    <footer className="bg-aegean-900 pt-12 pb-28 text-white lg:pb-12">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-5 text-center sm:flex-row sm:justify-between sm:text-left">
         <div className="flex items-center gap-4">
           <Logo size={64} />

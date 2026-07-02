@@ -5,6 +5,7 @@ import Menu from "@/components/Menu";
 import About from "@/components/About";
 import Visit from "@/components/Visit";
 import Footer from "@/components/Footer";
+import MobileOrderBar from "@/components/MobileOrderBar";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <Visit />
       </main>
       <Footer />
+      <MobileOrderBar />
     </>
   );
 }

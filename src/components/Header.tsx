@@ -38,7 +38,7 @@ export default function Header() {
           ))}
         </ul>
 
-        <div className="hidden items-center gap-4 md:flex">
+        <div className="hidden items-center gap-4 lg:flex">
           <a href={phoneHref} className="group flex items-center gap-2.5">
             <span className="flex h-10 w-10 items-center justify-center rounded-full bg-aegean-600 text-white">
               📞
@@ -65,7 +65,7 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center rounded-lg text-aegean-900 md:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-lg text-aegean-900 lg:hidden"
           aria-label="Menü öffnen"
           aria-expanded={open}
         >
@@ -74,7 +74,7 @@ export default function Header() {
       </nav>
 
       {open && (
-        <ul className="flex flex-col gap-1 border-t border-aegean-100 px-5 pb-4 md:hidden">
+        <ul className="flex flex-col gap-1 border-t border-aegean-100 px-5 pb-4 lg:hidden">
           {links.map((link) => (
             <li key={link.href}>
               <a
