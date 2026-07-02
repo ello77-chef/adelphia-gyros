@@ -100,16 +100,26 @@ export default function Visit() {
                   {restaurant.phone}
                 </a>
               </p>
-              <p className="flex items-center gap-3">
-                <span aria-hidden>✉️</span>
-                <a
-                  href={`mailto:${restaurant.email}`}
-                  className="hover:text-aegean-600"
-                >
-                  {restaurant.email}
-                </a>
-              </p>
+              {restaurant.email && (
+                <p className="flex items-center gap-3">
+                  <span aria-hidden>✉️</span>
+                  <a
+                    href={`mailto:${restaurant.email}`}
+                    className="hover:text-aegean-600"
+                  >
+                    {restaurant.email}
+                  </a>
+                </p>
+              )}
             </address>
+            <a
+              href={restaurant.googleUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-2 rounded-full border-2 border-aegean-100 px-5 py-2.5 font-bold text-aegean-600 transition-colors hover:border-aegean-600 hover:bg-aegean-50"
+            >
+              📍 Route planen
+            </a>
           </Reveal>
 
           <Reveal

@@ -154,6 +154,20 @@ export default function Hero() {
               Speisekarte
             </a>
           </div>
+
+          <a
+            href={restaurant.googleUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="animate-pop-in pop-delay-5 mt-1 inline-flex items-center gap-2 text-sm text-white/85 transition-colors hover:text-white"
+          >
+            <span className="text-yellow-300" aria-hidden>
+              ★★★★★
+            </span>
+            <span className="font-bold">{restaurant.rating.score}</span>
+            <span className="text-white/50">·</span>
+            <span>{restaurant.rating.count} Rezensionen auf Google</span>
+          </a>
         </div>
 
         <div className="animate-pop-in pop-delay-3 justify-self-center">

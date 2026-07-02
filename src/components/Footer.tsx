@@ -31,21 +31,33 @@ export default function Footer() {
             Jetzt bestellen
           </a>
           <a
-            href={restaurant.social.instagram}
+            href={restaurant.googleUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="text-white/70 transition-colors hover:text-white"
           >
-            Instagram
+            Google
           </a>
-          <a
-            href={restaurant.social.facebook}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white/70 transition-colors hover:text-white"
-          >
-            Facebook
-          </a>
+          {restaurant.social.instagram && (
+            <a
+              href={restaurant.social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/70 transition-colors hover:text-white"
+            >
+              Instagram
+            </a>
+          )}
+          {restaurant.social.facebook && (
+            <a
+              href={restaurant.social.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/70 transition-colors hover:text-white"
+            >
+              Facebook
+            </a>
+          )}
         </div>
       </div>
       <p className="mt-8 text-center text-xs text-white/40">

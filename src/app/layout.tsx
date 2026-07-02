@@ -16,9 +16,9 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  title: "Adelphia Gyros — Griechische Küche & Gyros",
+  title: "Adelphia Gyros — Griechische Küche & Gyros in Graz",
   description:
-    "Adelphia Gyros — authentische griechische Küche. Frisches Gyros, hausgemachte Souvlaki, Meze und mediterrane Spezialitäten. Zum Mitnehmen oder gemütlich vor Ort.",
+    "Adelphia Gyros in Graz (Sporgasse 16) — authentische griechische Küche. Frisches Gyros, hausgemachte Souvlaki, Meze und mediterrane Spezialitäten. Zum Mitnehmen oder liefern lassen.",
   keywords: [
     "Gyros",
     "Griechisches Restaurant",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     description:
       "Authentische griechische Küche: frisches Gyros, Souvlaki, Meze und mehr.",
     type: "website",
-    locale: "de_DE",
+    locale: "de_AT",
   },
 };
 
