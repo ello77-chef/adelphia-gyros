@@ -1,4 +1,5 @@
 import { restaurant } from "@/data/restaurant";
+import PhoneIcon from "@/components/PhoneIcon";
 
 /**
  * Fest am unteren Rand verankerte Bestell-Leiste für kleine Screens
@@ -12,9 +13,9 @@ export default function MobileOrderBar() {
       <a
         href={phoneHref}
         aria-label="Anrufen"
-        className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-aegean-100 text-xl text-aegean-600 transition-colors hover:border-aegean-600"
+        className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-aegean-100 text-aegean-600 transition-colors hover:border-aegean-600"
       >
-        📞
+        <PhoneIcon className="h-5 w-5" />
       </a>
       <a
         href={restaurant.foodoraUrl}

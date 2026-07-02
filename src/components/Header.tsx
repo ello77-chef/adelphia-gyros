@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { restaurant } from "@/data/restaurant";
 import Logo from "@/components/Logo";
+import PhoneIcon from "@/components/PhoneIcon";
 
 const links = [
   { href: "#top", label: "Home" },
@@ -41,7 +42,7 @@ export default function Header() {
         <div className="hidden items-center gap-4 lg:flex">
           <a href={phoneHref} className="group flex items-center gap-2.5">
             <span className="flex h-10 w-10 items-center justify-center rounded-full bg-aegean-600 text-white">
-              📞
+              <PhoneIcon className="h-[18px] w-[18px]" />
             </span>
             <span className="leading-tight">
               <span className="block text-[10px] font-semibold uppercase tracking-widest text-aegean-400">
