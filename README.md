@@ -33,6 +33,27 @@ npm run start    # Produktions-Server starten
 npm run lint     # ESLint
 ```
 
+## Hosting auf GitHub Pages
+
+Die Seite wird bei jedem Push auf den Default-Branch automatisch als
+statische Seite gebaut und auf **GitHub Pages** veröffentlicht (siehe
+`.github/workflows/deploy.yml`).
+
+**Einmalig aktivieren:** Im Repository unter **Settings → Pages** bei
+_"Build and deployment → Source"_ **„GitHub Actions"** auswählen. Danach
+läuft der Deploy bei jedem Push automatisch.
+
+Live-Adresse (Project-Page):
+
+```
+https://ello77-chef.github.io/adelphia-gyros/
+```
+
+Technischer Hintergrund: `next.config.ts` nutzt `output: "export"` (statischer
+Export nach `out/`), `images.unoptimized` (Pages hat keinen Bild-Server) und
+einen `basePath`, den der Workflow auf `/<repo-name>` setzt. Die Datei
+`public/.nojekyll` verhindert, dass GitHub den `_next`-Ordner ausblendet.
+
 ## Projektstruktur
 
 ```

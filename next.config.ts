@@ -1,7 +1,19 @@
 import type { NextConfig } from "next";
 
+// Für GitHub Pages: die Seite wird zu statischem HTML exportiert (Ordner `out`).
+// Bei einer Project-Page läuft sie unter https://<user>.github.io/<repo>/,
+// deshalb muss ein basePath gesetzt werden. Der Deploy-Workflow setzt
+// PAGES_BASE_PATH auf "/<repo-name>"; lokal (npm run dev) bleibt es leer,
+// damit die Seite normal unter http://localhost:3000 erreichbar ist.
+const basePath = process.env.PAGES_BASE_PATH || "";
+
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: "export",
+  basePath,
+  images: {
+    // GitHub Pages hat keinen Node-Server für die Bildoptimierung.
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;
