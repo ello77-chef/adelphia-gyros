@@ -1,4 +1,12 @@
+import Image from "next/image";
 import { restaurant } from "@/data/restaurant";
+import { menu } from "@/data/menu";
+
+// Der Klassiker fürs Hero: aus der Speisekarte gezogen, damit Preis &
+// Beschreibung immer synchron mit der Karte bleiben.
+const classic =
+  menu.flatMap((c) => c.items).find((i) => i.name === "Gyros Pita") ??
+  menu[0].items[0];
 
 /** Rauer Pinselstrich-Übergang von Blau nach Weiß (Pesto-Style). */
 function BrushDivider() {
@@ -23,23 +31,72 @@ function BrushDivider() {
 }
 
 /**
- * Platzhalter für das Hero-Foto (schwebender Gyros-Teller).
- * Später durch ein freigestelltes Foto in /public ersetzen.
+ * Schwebende "Unser Klassiker"-Karte im Hero. Zeigt das Gyros Pita mit
+ * Bild-Platzhalter; sobald ein Foto hinterlegt ist (menu.ts → image),
+ * wird es automatisch angezeigt.
  */
-function DishPlaceholder() {
+function SignatureDishCard() {
   return (
-    <div className="relative flex items-center justify-center">
+    <div className="relative">
+      {/* Weicher Schein hinter der Karte */}
       <div
         aria-hidden
-        className="animate-spin-slow absolute h-72 w-72 rounded-full border-2 border-dashed border-white/25 sm:h-96 sm:w-96"
+        className="pointer-events-none absolute inset-2 rounded-[2rem] bg-white/25 blur-2xl"
       />
-      <div className="animate-float flex h-60 w-60 flex-col items-center justify-center gap-2 rounded-full bg-white/10 text-center shadow-2xl backdrop-blur-sm sm:h-80 sm:w-80">
-        <span className="text-7xl sm:text-8xl" aria-hidden>
-          🥙
-        </span>
-        <span className="px-8 text-xs font-semibold uppercase tracking-widest text-white/60">
-          Platzhalter — Foto folgt
-        </span>
+      {/* Leichte Neigung außen, Schwebe-Animation innen (so bleibt die
+          Neigung auch bei reduzierter Bewegung erhalten) */}
+      <div className="-rotate-3">
+        <article className="animate-float w-72 overflow-hidden rounded-3xl bg-white shadow-2xl sm:w-80">
+          <div className="flex items-center gap-2 bg-aegean-600 px-5 py-2.5 text-white">
+            <span aria-hidden>⭐</span>
+            <span className="text-sm font-extrabold uppercase tracking-widest">
+              Unser Klassiker
+            </span>
+          </div>
+
+          <div className="relative flex h-44 items-center justify-center bg-aegean-50">
+            {classic.image ? (
+              <Image
+                src={classic.image}
+                alt={classic.name}
+                fill
+                className="object-cover"
+                sizes="320px"
+              />
+            ) : (
+              <div className="flex flex-col items-center gap-1 text-aegean-200">
+                <span className="text-6xl" aria-hidden>
+                  🥙
+                </span>
+                <span className="text-[10px] font-bold uppercase tracking-widest">
+                  Foto folgt
+                </span>
+              </div>
+            )}
+          </div>
+
+          <div className="flex flex-col gap-2 p-5 text-aegean-900">
+            <div className="flex items-baseline justify-between gap-3">
+              <h3 className="font-display text-2xl font-bold">
+                {classic.name}
+              </h3>
+              <span className="text-xl font-extrabold text-aegean-600">
+                {classic.price}
+              </span>
+            </div>
+            <p className="text-sm leading-relaxed text-aegean-900/65">
+              {classic.description}
+            </p>
+            <a
+              href={restaurant.foodoraUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 rounded-full bg-aegean-600 px-5 py-2.5 text-center text-sm font-bold text-white transition-colors hover:bg-aegean-700"
+            >
+              Jetzt bestellen
+            </a>
+          </div>
+        </article>
       </div>
     </div>
   );
@@ -99,7 +156,7 @@ export default function Hero() {
         </div>
 
         <div className="animate-pop-in pop-delay-3 justify-self-center">
-          <DishPlaceholder />
+          <SignatureDishCard />
         </div>
       </div>
 

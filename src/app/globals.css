@@ -15,21 +15,11 @@
   --color-sky-soft: #7fb3e3;
   --color-cream: #f7f9fc;
 
-  --font-display: var(--font-playfair);
-  --font-sans: var(--font-inter);
+  --font-display: var(--font-baloo);
+  --font-sans: var(--font-nunito);
 
   --animate-pop-in: pop-in 0.7s cubic-bezier(0.22, 1.2, 0.36, 1) both;
   --animate-float: float 6s ease-in-out infinite;
-  --animate-spin-slow: spin-slow 40s linear infinite;
-
-  @keyframes spin-slow {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
 
   @keyframes pop-in {
     0% {
@@ -91,8 +81,7 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .animate-pop-in,
-  .animate-float,
-  .animate-spin-slow {
+  .animate-float {
     animation: none;
   }
 }
