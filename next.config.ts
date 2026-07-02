@@ -13,6 +13,15 @@ const nextConfig: NextConfig = {
   images: {
     // GitHub Pages hat keinen Node-Server für die Bildoptimierung.
     unoptimized: true,
+    // Mit Higgsfield generierte Bilder werden über den CDN der
+    // Higgsfield-Storage ausgeliefert (von Besucher-Browsern geladen).
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "d8j0ntlcm91z4.cloudfront.net",
+        pathname: "/**",
+      },
+    ],
   },
 };
 

@@ -32,6 +32,10 @@ export const menu: MenuCategory[] = [
           "Warmes Fladenbrot, Gyros vom Schwein, Tzatziki, Tomate, Zwiebel & Pommes.",
         price: "7,90 €",
         tags: ["Klassiker"],
+        // Mit Higgsfield generiertes 3D-Foto (via CDN). TODO: für dauerhafte
+        // Verfügbarkeit lokal unter /public/dishes ablegen und Pfad ersetzen.
+        image:
+          "https://d8j0ntlcm91z4.cloudfront.net/user_3Fo8OJRpdPkxkR7ZYIqtBbCpSjX/hf_20260702_112858_b0f9290a-80a5-4fbb-8d4b-4c8429fab650.png",
       },
       {
         name: "Hähnchen-Gyros Pita",
