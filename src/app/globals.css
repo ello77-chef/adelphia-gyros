@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette — Aegean blue, warm terracotta, olive & sand */
+  --color-aegean-50: #eef5fb;
+  --color-aegean-100: #d5e6f5;
+  --color-aegean-500: #1e6fb8;
+  --color-aegean-600: #175a97;
+  --color-aegean-700: #124876;
+  --color-aegean-900: #0b2e4d;
+
+  --color-terracotta-400: #e08a5a;
+  --color-terracotta-500: #d1743f;
+  --color-terracotta-600: #b85e2d;
+
+  --color-olive-500: #7d8a4f;
+  --color-olive-600: #64723c;
+
+  --color-sand-50: #fbf7f0;
+  --color-sand-100: #f4ecdd;
+  --color-sand-200: #e9dcc4;
+
+  --font-display: var(--font-playfair);
+  --font-sans: var(--font-inter);
+}
+
+:root {
+  --background: #fbf7f0;
+  --foreground: #23201a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Subtle Greek-key inspired divider */
+.text-balance {
+  text-wrap: balance;
+}
