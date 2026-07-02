@@ -7,12 +7,12 @@ export default function Hero() {
     <section
       id="top"
       aria-label="Willkommen"
-      className="relative overflow-hidden bg-ink text-cream-50"
+      className="relative overflow-hidden bg-aegean-700 text-cream-50"
     >
-      {/* Warmes Glut-Leuchten im Hintergrund */}
+      {/* Ägäis-Leuchten im Hintergrund */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(209,90,43,0.38),transparent_62%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_16%,rgba(127,179,227,0.45),transparent_62%)]"
       />
 
       <div className="relative mx-auto flex max-w-3xl flex-col items-center gap-4 px-5 pb-12 pt-6 text-center">
@@ -49,7 +49,7 @@ export default function Hero() {
           href={restaurant.foodoraUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-1 w-full max-w-xs rounded-full bg-ember-500 px-8 py-4 text-lg font-extrabold text-white shadow-xl shadow-ember-600/30 transition-all hover:bg-ember-600 active:scale-[0.97]"
+          className="mt-1 w-full max-w-xs rounded-full bg-white px-8 py-4 text-lg font-extrabold text-aegean-700 shadow-xl shadow-aegean-900/30 transition-all hover:bg-cream-100 active:scale-[0.97]"
         >
           Jetzt bei foodora bestellen
         </a>

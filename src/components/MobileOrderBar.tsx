@@ -48,7 +48,7 @@ export default function MobileOrderBar() {
           href={restaurant.foodoraUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 rounded-full bg-ember-500 px-5 py-3.5 text-center text-lg font-extrabold text-white shadow-lg shadow-ember-600/25 transition-all active:scale-[0.98]"
+          className="flex-1 rounded-full bg-aegean-600 px-5 py-3.5 text-center text-lg font-extrabold text-white shadow-lg shadow-aegean-700/25 transition-all active:scale-[0.98]"
         >
           Jetzt bestellen
         </a>

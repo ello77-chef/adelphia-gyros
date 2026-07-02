@@ -51,7 +51,7 @@ export default function OpeningHours() {
                   key={h.day}
                   className={`flex items-center justify-between py-2 text-sm ${
                     i === today
-                      ? "font-extrabold text-ember-600"
+                      ? "font-extrabold text-aegean-600"
                       : "text-ink"
                   }`}
                 >

@@ -60,7 +60,7 @@ export default function Bestsellers() {
                     </span>
                   </span>
 
-                  <span className="tnum shrink-0 self-center font-display text-lg font-extrabold text-ember-600">
+                  <span className="tnum shrink-0 self-center font-display text-lg font-extrabold text-aegean-600">
                     {item.price}
                   </span>
                 </a>

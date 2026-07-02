@@ -53,7 +53,7 @@ export default function Menu() {
                 aria-current={active === c.id ? "true" : undefined}
                 className={`flex items-center gap-1.5 whitespace-nowrap rounded-full px-4 py-2 text-sm font-bold transition-colors ${
                   active === c.id
-                    ? "bg-ember-500 text-white"
+                    ? "bg-aegean-600 text-white"
                     : "bg-cream-100 text-ink-soft"
                 }`}
               >
@@ -112,7 +112,7 @@ export default function Menu() {
                         <span className="truncate font-display text-[17px] font-bold text-ink">
                           {item.name}
                         </span>
-                        <span className="tnum shrink-0 font-display text-lg font-extrabold text-ember-600">
+                        <span className="tnum shrink-0 font-display text-lg font-extrabold text-aegean-600">
                           {item.price}
                         </span>
                       </span>

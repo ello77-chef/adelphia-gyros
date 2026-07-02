@@ -29,7 +29,7 @@ export const menu: MenuCategory[] = [
     title: "Gyros & Souvlaki",
     subtitle: "Vom Spieß & Grill — unser Herzstück",
     icon: "🥙",
-    gradient: "linear-gradient(135deg, #e8a04a 0%, #cf5a2b 100%)",
+    gradient: "linear-gradient(135deg, #3aa0d8 0%, #0d5177 100%)",
     items: [
       {
         name: "Gyros Pita",
@@ -67,7 +67,7 @@ export const menu: MenuCategory[] = [
     title: "Meze & Vorspeisen",
     subtitle: "Zum Teilen — oder ganz für dich",
     icon: "🫒",
-    gradient: "linear-gradient(135deg, #9cad5b 0%, #5f6f30 100%)",
+    gradient: "linear-gradient(135deg, #4bc0c8 0%, #12689b 100%)",
     items: [
       {
         name: "Tzatziki",
@@ -100,7 +100,7 @@ export const menu: MenuCategory[] = [
     title: "Salate",
     subtitle: "Frisch aus dem Mittelmeer-Garten",
     icon: "🥗",
-    gradient: "linear-gradient(135deg, #a7c15a 0%, #6e8f3a 100%)",
+    gradient: "linear-gradient(135deg, #7fc0e8 0%, #1a76b0 100%)",
     items: [
       {
         name: "Choriatiki (Bauernsalat)",
@@ -121,7 +121,7 @@ export const menu: MenuCategory[] = [
     title: "Getränke",
     subtitle: "Von Frappé bis Ouzo",
     icon: "🍹",
-    gradient: "linear-gradient(135deg, #4a9fd4 0%, #12689b 100%)",
+    gradient: "linear-gradient(135deg, #1a76b0 0%, #072d43 100%)",
     items: [
       {
         name: "Frappé",
