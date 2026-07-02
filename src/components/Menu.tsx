@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { menu, type MenuItem } from "@/data/menu";
 import { restaurant } from "@/data/restaurant";
+import Reveal from "@/components/Reveal";
 
 function Tag({ label }: { label: string }) {
   return (
@@ -34,19 +35,19 @@ function CategoryNav() {
 
 function DishCard({ item, icon }: { item: MenuItem; icon: string }) {
   return (
-    <article className="flex flex-col overflow-hidden rounded-2xl border border-aegean-100 bg-white shadow-sm transition-shadow hover:shadow-xl">
+    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-aegean-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
       {/* Bildbereich — Platzhalter, bis die Fotos vorliegen */}
-      <div className="relative flex h-44 items-center justify-center bg-aegean-50">
+      <div className="relative flex h-44 items-center justify-center overflow-hidden bg-aegean-50">
         {item.image ? (
           <Image
             src={item.image}
             alt={item.name}
             fill
-            className="object-cover"
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
             sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
           />
         ) : (
-          <div className="flex flex-col items-center gap-1 text-aegean-200">
+          <div className="flex flex-col items-center gap-1 text-aegean-200 transition-transform duration-500 group-hover:scale-110">
             <span className="text-6xl" aria-hidden>
               {icon}
             </span>
@@ -93,30 +94,34 @@ export default function Menu() {
   return (
     <section id="speisekarte" className="scroll-mt-20 bg-white py-20">
       <div className="mx-auto max-w-6xl px-5">
-        <div className="text-center">
+        <Reveal className="text-center">
           <p className="font-bold uppercase tracking-[0.25em] text-aegean-400">
             Kalí órexi
           </p>
-          <h2 className="mt-2 font-display text-4xl font-bold text-aegean-900 sm:text-5xl">
+          <h2 className="mt-2 font-display text-5xl font-extrabold text-aegean-900 sm:text-6xl">
             Adelphias Speisekarte
           </h2>
-        </div>
+        </Reveal>
 
         <CategoryNav />
 
         {menu.map((category) => (
           <div key={category.id} id={category.id} className="scroll-mt-24 pt-16">
-            <div className="mb-6 flex items-baseline gap-3">
-              <h3 className="font-display text-3xl font-bold text-aegean-700">
-                {category.title}
-              </h3>
-              <span className="text-sm font-medium text-aegean-900/50">
-                {category.subtitle}
-              </span>
-            </div>
+            <Reveal>
+              <div className="mb-6 flex items-baseline gap-3">
+                <h3 className="font-display text-3xl font-extrabold text-aegean-700 sm:text-4xl">
+                  {category.title}
+                </h3>
+                <span className="text-sm font-medium text-aegean-900/50">
+                  {category.subtitle}
+                </span>
+              </div>
+            </Reveal>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {category.items.map((item) => (
-                <DishCard key={item.name} item={item} icon={category.icon} />
+              {category.items.map((item, i) => (
+                <Reveal key={item.name} delay={i * 80} className="h-full">
+                  <DishCard item={item} icon={category.icon} />
+                </Reveal>
               ))}
             </div>
           </div>

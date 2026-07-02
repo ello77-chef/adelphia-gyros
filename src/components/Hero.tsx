@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { restaurant } from "@/data/restaurant";
 import { menu } from "@/data/menu";
+import ParallaxLayer from "@/components/ParallaxLayer";
 
 // Der Klassiker fürs Hero: aus der Speisekarte gezogen, damit Preis &
 // Beschreibung immer synchron mit der Karte bleiben.
@@ -108,13 +109,13 @@ export default function Hero() {
       id="top"
       className="relative overflow-hidden bg-aegean-600 text-white"
     >
-      {/* Dekorative Lichtflächen */}
-      <div
-        aria-hidden
+      {/* Dekorative Lichtflächen — mit leichtem Parallax für Tiefe */}
+      <ParallaxLayer
+        speed={0.3}
         className="pointer-events-none absolute -right-32 -top-32 h-[28rem] w-[28rem] rounded-full bg-sky-soft/25 blur-3xl"
       />
-      <div
-        aria-hidden
+      <ParallaxLayer
+        speed={-0.2}
         className="pointer-events-none absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-aegean-900/40 blur-3xl"
       />
 
@@ -124,7 +125,7 @@ export default function Hero() {
             {restaurant.claim}
           </span>
 
-          <h1 className="animate-pop-in pop-delay-2 font-display text-6xl font-bold leading-none text-balance sm:text-8xl">
+          <h1 className="animate-pop-in pop-delay-2 font-display text-7xl font-extrabold leading-none text-balance sm:text-8xl md:text-9xl">
             Kalispera!
           </h1>
 
@@ -156,7 +157,9 @@ export default function Hero() {
         </div>
 
         <div className="animate-pop-in pop-delay-3 justify-self-center">
-          <SignatureDishCard />
+          <ParallaxLayer speed={0.1}>
+            <SignatureDishCard />
+          </ParallaxLayer>
         </div>
       </div>
 

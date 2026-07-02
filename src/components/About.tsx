@@ -1,3 +1,5 @@
+import Reveal from "@/components/Reveal";
+
 const features = [
   {
     icon: "🔥",
@@ -20,11 +22,11 @@ export default function About() {
   return (
     <section id="ueber-uns" className="scroll-mt-20 bg-aegean-50 py-20">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 md:grid-cols-2">
-        <div>
+        <Reveal>
           <p className="font-bold uppercase tracking-[0.25em] text-aegean-400">
             Unsere Geschichte
           </p>
-          <h2 className="mt-2 font-display text-4xl font-bold text-aegean-900 sm:text-5xl">
+          <h2 className="mt-2 font-display text-5xl font-extrabold text-aegean-900 sm:text-6xl">
             Ein Stück Griechenland
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-aegean-900/75">
@@ -37,24 +39,23 @@ export default function About() {
             Ob schnell zum Mitnehmen oder gemütlich mit Freunden am Tisch: bei uns
             zählt Gastfreundschaft — griechisch, herzlich und ehrlich.
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid gap-5">
-          {features.map((f) => (
-            <div
-              key={f.title}
-              className="flex gap-4 rounded-2xl border border-aegean-100 bg-white p-5 shadow-sm"
-            >
-              <span className="text-3xl" aria-hidden>
-                {f.icon}
-              </span>
-              <div>
-                <h3 className="font-display text-xl font-bold text-aegean-900">
-                  {f.title}
-                </h3>
-                <p className="mt-1 text-aegean-900/70">{f.text}</p>
+          {features.map((f, i) => (
+            <Reveal key={f.title} delay={i * 120}>
+              <div className="flex gap-4 rounded-2xl border border-aegean-100 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <span className="text-3xl" aria-hidden>
+                  {f.icon}
+                </span>
+                <div>
+                  <h3 className="font-display text-xl font-bold text-aegean-900">
+                    {f.title}
+                  </h3>
+                  <p className="mt-1 text-aegean-900/70">{f.text}</p>
+                </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

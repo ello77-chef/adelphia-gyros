@@ -84,4 +84,11 @@ body {
   .animate-float {
     animation: none;
   }
+
+  /* Scroll-Reveal ohne Bewegung: sofort sichtbar anzeigen. */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
