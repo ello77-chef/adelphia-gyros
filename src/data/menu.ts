@@ -3,9 +3,11 @@ export type MenuItem = {
   description: string;
   price: string;
   tags?: string[];
+  /** Als Bestseller unter dem Hero hervorheben. */
+  bestseller?: boolean;
   /**
    * Pfad zu einem Foto unter /public (z.B. "/dishes/gyros-pita.jpg").
-   * Solange kein Bild hinterlegt ist, zeigt die Karte einen Platzhalter.
+   * Solange kein Bild hinterlegt ist, zeigt der Slot einen Farbverlauf.
    */
   image?: string;
 };
@@ -14,8 +16,10 @@ export type MenuCategory = {
   id: string;
   title: string;
   subtitle: string;
-  /** Emoji-Icon für die Kategorie-Leiste (später durch Fotos ersetzbar). */
+  /** Emoji-Icon für Chips & Bild-Slots. */
   icon: string;
+  /** Warmer Farbverlauf für die Bild-Slots dieser Kategorie. */
+  gradient: string;
   items: MenuItem[];
 };
 
@@ -25,6 +29,7 @@ export const menu: MenuCategory[] = [
     title: "Gyros & Souvlaki",
     subtitle: "Vom Spieß & Grill — unser Herzstück",
     icon: "🥙",
+    gradient: "linear-gradient(135deg, #e8a04a 0%, #cf5a2b 100%)",
     items: [
       {
         name: "Gyros Pita",
@@ -32,6 +37,7 @@ export const menu: MenuCategory[] = [
           "Warmes Fladenbrot, Gyros vom Schwein, Tzatziki, Tomate, Zwiebel & Pommes.",
         price: "7,90 €",
         tags: ["Klassiker"],
+        bestseller: true,
       },
       {
         name: "Hähnchen-Gyros Pita",
@@ -44,6 +50,7 @@ export const menu: MenuCategory[] = [
         description:
           "Zwei Spieße vom Schweinenacken, dazu Pita, Tzatziki & Zitrone.",
         price: "9,50 €",
+        bestseller: true,
       },
       {
         name: "Gyros-Teller",
@@ -51,6 +58,7 @@ export const menu: MenuCategory[] = [
           "Großzügige Portion Gyros, Pommes oder Reis, Krautsalat & Tzatziki.",
         price: "13,90 €",
         tags: ["Beliebt"],
+        bestseller: true,
       },
     ],
   },
@@ -59,6 +67,7 @@ export const menu: MenuCategory[] = [
     title: "Meze & Vorspeisen",
     subtitle: "Zum Teilen — oder ganz für dich",
     icon: "🫒",
+    gradient: "linear-gradient(135deg, #9cad5b 0%, #5f6f30 100%)",
     items: [
       {
         name: "Tzatziki",
@@ -91,6 +100,7 @@ export const menu: MenuCategory[] = [
     title: "Salate",
     subtitle: "Frisch aus dem Mittelmeer-Garten",
     icon: "🥗",
+    gradient: "linear-gradient(135deg, #a7c15a 0%, #6e8f3a 100%)",
     items: [
       {
         name: "Choriatiki (Bauernsalat)",
@@ -111,6 +121,7 @@ export const menu: MenuCategory[] = [
     title: "Getränke",
     subtitle: "Von Frappé bis Ouzo",
     icon: "🍹",
+    gradient: "linear-gradient(135deg, #4a9fd4 0%, #12689b 100%)",
     items: [
       {
         name: "Frappé",

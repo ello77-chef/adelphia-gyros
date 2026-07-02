@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Baloo_2, Nunito } from "next/font/google";
 import "./globals.css";
+import StructuredData from "@/components/StructuredData";
 
 // Rundes, freundliches Display-Font für Überschriften …
 const baloo = Baloo_2({
@@ -36,6 +37,10 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#faf7f0",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -46,7 +51,8 @@ export default function RootLayout({
       lang="de"
       className={`${nunito.variable} ${baloo.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-white text-[#0f1c2b]">
+      <body className="min-h-full flex flex-col bg-cream-50 text-ink">
+        <StructuredData />
         {children}
       </body>
     </html>

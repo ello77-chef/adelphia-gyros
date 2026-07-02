@@ -1,135 +1,132 @@
-import Image from "next/image";
-import { menu, type MenuItem } from "@/data/menu";
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import { menu } from "@/data/menu";
 import { restaurant } from "@/data/restaurant";
-import Reveal from "@/components/Reveal";
-
-function Tag({ label }: { label: string }) {
-  return (
-    <span className="rounded-full bg-aegean-50 px-2.5 py-0.5 text-xs font-semibold text-aegean-600">
-      {label}
-    </span>
-  );
-}
-
-/** Kategorie-Leiste wie im Vorbild: runde Icons mit Label. */
-function CategoryNav() {
-  return (
-    <div className="mx-auto mt-10 flex max-w-4xl flex-wrap items-start justify-center gap-6 sm:gap-10">
-      {menu.map((category) => (
-        <a
-          key={category.id}
-          href={`#${category.id}`}
-          className="group flex w-24 flex-col items-center gap-3 text-center"
-        >
-          <span className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-aegean-100 bg-white text-4xl shadow-sm transition-all group-hover:-translate-y-1 group-hover:border-aegean-600 group-hover:shadow-lg">
-            {category.icon}
-          </span>
-          <span className="text-sm font-bold text-aegean-900 group-hover:text-aegean-600">
-            {category.title}
-          </span>
-        </a>
-      ))}
-    </div>
-  );
-}
-
-function DishCard({ item, icon }: { item: MenuItem; icon: string }) {
-  return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-aegean-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-      {/* Bildbereich — Platzhalter, bis die Fotos vorliegen */}
-      <div className="relative flex h-44 items-center justify-center overflow-hidden bg-aegean-50">
-        {item.image ? (
-          <Image
-            src={item.image}
-            alt={item.name}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-110"
-            sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-          />
-        ) : (
-          <div className="flex flex-col items-center gap-1 text-aegean-200 transition-transform duration-500 group-hover:scale-110">
-            <span className="text-6xl" aria-hidden>
-              {icon}
-            </span>
-            <span className="text-[10px] font-bold uppercase tracking-widest">
-              Foto folgt
-            </span>
-          </div>
-        )}
-      </div>
-
-      <div className="flex flex-1 flex-col gap-2 p-5">
-        <div className="flex items-baseline justify-between gap-3">
-          <h4 className="font-display text-lg font-bold text-aegean-900">
-            {item.name}
-          </h4>
-          <span className="whitespace-nowrap text-lg font-bold text-aegean-600">
-            {item.price}
-          </span>
-        </div>
-        <p className="flex-1 text-sm leading-relaxed text-aegean-900/65">
-          {item.description}
-        </p>
-        {item.tags && item.tags.length > 0 && (
-          <div className="flex flex-wrap gap-2">
-            {item.tags.map((tag) => (
-              <Tag key={tag} label={tag} />
-            ))}
-          </div>
-        )}
-        <a
-          href={restaurant.foodoraUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-3 rounded-full bg-aegean-600 px-5 py-2.5 text-center text-sm font-bold text-white transition-colors hover:bg-aegean-700"
-        >
-          Jetzt bestellen
-        </a>
-      </div>
-    </article>
-  );
-}
+import Pills from "@/components/Pills";
 
 export default function Menu() {
+  const [active, setActive] = useState(menu[0].id);
+  const barRef = useRef<HTMLUListElement>(null);
+
+  // Scroll-Spy: aktive Kategorie = die letzte, deren Anfang oberhalb der
+  // Sticky-Leisten liegt.
+  useEffect(() => {
+    const LINE = 140;
+    const onScroll = () => {
+      let current = menu[0].id;
+      for (const c of menu) {
+        const el = document.getElementById(c.id);
+        if (el && el.getBoundingClientRect().top <= LINE) current = c.id;
+      }
+      setActive(current);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Aktiven Chip in der horizontalen Leiste sichtbar halten.
+  useEffect(() => {
+    const chip = barRef.current?.querySelector<HTMLElement>(
+      `[data-chip="${active}"]`,
+    );
+    chip?.scrollIntoView({ inline: "center", block: "nearest" });
+  }, [active]);
+
   return (
-    <section id="speisekarte" className="scroll-mt-20 bg-white py-20">
-      <div className="mx-auto max-w-6xl px-5">
-        <Reveal className="text-center">
-          <p className="font-bold uppercase tracking-[0.25em] text-aegean-400">
-            Kalí órexi
-          </p>
-          <h2 className="mt-2 font-display text-5xl font-extrabold text-aegean-900 sm:text-6xl">
-            Adelphias Speisekarte
-          </h2>
-        </Reveal>
+    <section id="speisekarte" aria-label="Speisekarte">
+      {/* Sticky Kategorie-Chips */}
+      <nav
+        aria-label="Kategorien"
+        className="sticky top-[50px] z-40 border-y border-cream-200 bg-cream-50/95 backdrop-blur"
+      >
+        <ul
+          ref={barRef}
+          className="no-scrollbar mx-auto flex max-w-3xl gap-2 overflow-x-auto px-4 py-2.5"
+        >
+          {menu.map((c) => (
+            <li key={c.id}>
+              <a
+                href={`#${c.id}`}
+                data-chip={c.id}
+                aria-current={active === c.id ? "true" : undefined}
+                className={`flex items-center gap-1.5 whitespace-nowrap rounded-full px-4 py-2 text-sm font-bold transition-colors ${
+                  active === c.id
+                    ? "bg-ember-500 text-white"
+                    : "bg-cream-100 text-ink-soft"
+                }`}
+              >
+                <span aria-hidden>{c.icon}</span>
+                {c.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
 
-        <CategoryNav />
+      <div className="mx-auto max-w-3xl px-4 pb-12 pt-2">
+        {menu.map((cat) => (
+          <section
+            key={cat.id}
+            id={cat.id}
+            aria-label={cat.title}
+            className="scroll-mt-28 pt-7"
+          >
+            <h2 className="mb-1 font-display text-2xl font-extrabold text-ink">
+              {cat.title}
+            </h2>
+            <p className="mb-3 text-sm text-ink-soft">{cat.subtitle}</p>
 
-        {menu.map((category) => (
-          <div key={category.id} id={category.id} className="scroll-mt-24 pt-16">
-            <Reveal>
-              <div className="mb-6 flex items-baseline gap-3">
-                <h3 className="font-display text-3xl font-extrabold text-aegean-700 sm:text-4xl">
-                  {category.title}
-                </h3>
-                <span className="text-sm font-medium text-aegean-900/50">
-                  {category.subtitle}
-                </span>
-              </div>
-            </Reveal>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {category.items.map((item, i) => (
-                <Reveal key={item.name} delay={i * 80} className="h-full">
-                  <DishCard item={item} icon={category.icon} />
-                </Reveal>
+            <ul className="grid gap-3">
+              {cat.items.map((item) => (
+                <li key={item.name}>
+                  <a
+                    href={restaurant.foodoraUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-stretch gap-3 rounded-2xl border border-cream-200 bg-white p-2.5 shadow-sm transition-transform active:scale-[0.99]"
+                  >
+                    <span
+                      className="relative flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-xl text-4xl"
+                      style={{ backgroundImage: cat.gradient }}
+                    >
+                      {item.image ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          loading="lazy"
+                          decoding="async"
+                          className="absolute inset-0 h-full w-full object-cover"
+                        />
+                      ) : (
+                        <span aria-hidden className="drop-shadow-sm">
+                          {cat.icon}
+                        </span>
+                      )}
+                    </span>
+
+                    <span className="flex min-w-0 flex-1 flex-col justify-center py-0.5">
+                      <span className="flex items-baseline justify-between gap-2">
+                        <span className="truncate font-display text-[17px] font-bold text-ink">
+                          {item.name}
+                        </span>
+                        <span className="tnum shrink-0 font-display text-lg font-extrabold text-ember-600">
+                          {item.price}
+                        </span>
+                      </span>
+                      <span className="mt-0.5 line-clamp-1 block text-sm text-ink-soft">
+                        {item.description}
+                      </span>
+                      <Pills tags={item.tags} />
+                    </span>
+                  </a>
+                </li>
               ))}
-            </div>
-          </div>
+            </ul>
+          </section>
         ))}
-
-        <p className="mt-14 text-center text-sm text-aegean-900/50">
-          Alle Preise inkl. MwSt. Bei Fragen zu Allergenen sprich uns gerne an.
-        </p>
       </div>
     </section>
   );

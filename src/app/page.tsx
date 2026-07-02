@@ -1,9 +1,9 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import MenuSlider from "@/components/MenuSlider";
+import Bestsellers from "@/components/Bestsellers";
 import Menu from "@/components/Menu";
-import About from "@/components/About";
-import Visit from "@/components/Visit";
+import OpeningHours from "@/components/OpeningHours";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import MobileOrderBar from "@/components/MobileOrderBar";
 
@@ -13,10 +13,10 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <Hero />
-        <MenuSlider />
+        <Bestsellers />
         <Menu />
-        <About />
-        <Visit />
+        <OpeningHours />
+        <Contact />
       </main>
       <Footer />
       <MobileOrderBar />
