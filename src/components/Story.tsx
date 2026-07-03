@@ -14,22 +14,26 @@ export default function Story() {
             Kalispera!
           </p>
           <h2 className="mt-3 font-display text-3xl font-extrabold leading-tight text-aegean-900 sm:text-4xl">
-            Zwei Geschwister, ein Spieß.
+            Adams Weg zum Spieß
           </h2>
         </Reveal>
 
         <Reveal delay={90}>
           <div className="mt-5 space-y-4 text-lg leading-relaxed text-ink/90">
             <p>
-              <span className="font-bold text-aegean-800">Adelphia</span> heißt
-              Geschwister. Wir haben in der Sporgasse aufgesperrt, weil wir das
-              Gyros unserer Familie so machen wollten, wie wir es von zu Hause
-              kennen — vom offenen Spieß, Tzatziki nach Yiayias Rezept, nichts
-              aus der Tüte.
+              Bevor Adelphia in der Sporgasse aufmachte, lebte{" "}
+              <span className="font-bold text-aegean-800">Adam</span> in
+              Griechenland — und lernte das Gyros-Handwerk direkt an der Quelle.
+              Nicht aus einem Kochbuch, sondern am offenen Spieß, neben Leuten,
+              die es ihr Leben lang machen: das richtige Marinieren, der saubere
+              Schnitt, das Gespür für den Moment, in dem das Fleisch perfekt ist.
             </p>
             <p>
-              Wenn der Chef „Kalispera!“ durch die Gasse ruft, ist der Spieß
-              heiß. Komm vorbei — oder lass dir&apos;s bringen.
+              Diese Handschrift bringt er heute nach Graz. Jeden Tag frisch
+              geschichtet, langsam gedreht, von Hand geschnitten. Die Meze nach
+              Familienrezept, das Tzatziki wie es sein soll. Und wenn Adam dich
+              mit einem „Kalispera!“ begrüßt, schmeckst du beim ersten Bissen,
+              dass hier jemand sein Handwerk in Griechenland gelernt hat.
             </p>
           </div>
         </Reveal>
