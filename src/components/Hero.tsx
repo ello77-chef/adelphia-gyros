@@ -47,8 +47,6 @@ export default function Hero() {
 
         <a
           href={restaurant.foodoraUrl}
-          target="_blank"
-          rel="noopener noreferrer"
           className="mt-1 w-full max-w-xs rounded-full bg-white px-8 py-4 text-lg font-extrabold text-aegean-700 shadow-xl shadow-aegean-900/30 transition-all hover:bg-cream-100 active:scale-[0.97]"
         >
           Jetzt bei foodora bestellen

@@ -24,8 +24,6 @@ export default function Bestsellers() {
               <Reveal delay={i * 70}>
                 <a
                   href={restaurant.foodoraUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="flex items-center gap-4 rounded-2xl border border-cream-200 bg-white p-3 shadow-sm transition-transform active:scale-[0.99]"
                 >
                   <span

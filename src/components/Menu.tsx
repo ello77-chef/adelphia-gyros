@@ -83,8 +83,6 @@ export default function Menu() {
                 <li key={item.name}>
                   <a
                     href={restaurant.foodoraUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="flex items-stretch gap-3 rounded-2xl border border-cream-200 bg-white p-2.5 shadow-sm transition-transform active:scale-[0.99]"
                   >
                     <span

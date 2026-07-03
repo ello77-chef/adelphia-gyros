@@ -29,8 +29,6 @@ export default function Footer() {
           </a>
           <a
             href={restaurant.foodoraUrl}
-            target="_blank"
-            rel="noopener noreferrer"
             className="text-cream-50/70 transition-colors hover:text-cream-50"
           >
             foodora
