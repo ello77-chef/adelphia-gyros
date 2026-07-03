@@ -115,10 +115,15 @@ export default function Menu() {
             {/* EIN Sammel-CTA je Kategorie — kein Button pro Gericht */}
             <a
               href={restaurant.foodoraUrl}
-              className="mt-6 inline-flex items-center gap-1.5 font-bold text-aegean-600 underline-offset-4 hover:underline"
+              className="group mt-7 inline-flex items-center gap-2.5 rounded-full bg-ember-500 px-6 py-3 font-extrabold text-ink shadow-[0_3px_0_#c9661c] transition-all hover:bg-ember-400 active:translate-y-0.5 active:shadow-none"
             >
-              {cat.title} bei Foodora bestellen
-              <span aria-hidden>→</span>
+              {cat.title} bestellen
+              <span
+                aria-hidden
+                className="text-lg transition-transform group-hover:translate-x-1"
+              >
+                →
+              </span>
             </a>
           </section>
         ))}
