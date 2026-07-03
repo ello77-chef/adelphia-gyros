@@ -1,46 +1,41 @@
 @import "tailwindcss";
 
 @theme {
-  /* ---- Griechische Palette: Blau/Weiß (Marke) ----------------------- */
-  /* Kühles Weiß / heller Himmel (Flächen) */
-  --color-cream-50: #f5f9fd;
-  --color-cream-100: #e7f1fa;
-  --color-cream-200: #d2e4f2;
-  --color-cream-300: #b6cfe4;
+  /* ==== „Kalispera — Ägäis bei Abendglut" ============================= */
+  /* Kykladen-Weiß, warm getüncht (Kalkputz) — Hauptflächen */
+  --color-cream-50: #f7f1e5;
+  --color-cream-100: #f0e7d5;
+  --color-cream-200: #e2d6bd;
+  --color-cream-300: #cdbb98;
 
-  /* Dunkles Ägäis-Anthrazit (Text) */
-  --color-ink: #16324a;
-  --color-ink-soft: #5a7085;
+  /* Kohle (Holzkohle) — Text */
+  --color-ink: #20201d;
+  --color-ink-soft: #6a6353;
 
-  /* Ägäis-Blau — Marke & primäre Aktion */
-  --color-aegean-50: #eaf4fb;
-  --color-aegean-100: #d3e8f7;
-  --color-aegean-500: #1a76b0;
-  --color-aegean-600: #12689b;
-  --color-aegean-700: #0d5177;
-  --color-aegean-800: #0a3f5e;
-  --color-aegean-900: #072d43;
+  /* Ägäis-Blau — Meer & Flagge: Identität, Akzent, Links, Preise */
+  --color-aegean-50: #e9f1f7;
+  --color-aegean-100: #cfe0ec;
+  --color-aegean-500: #2a7fbf;
+  --color-aegean-600: #1668a3;
+  --color-aegean-700: #0f4e79;
+  --color-aegean-800: #0b3a5c;
+  --color-aegean-900: #0b3350;
 
-  /* Warme Akzente sparsam (Sterne/„Beliebt") */
-  --color-ember-400: #f0a04a;
-  --color-ember-500: #e08a2f;
-  --color-ember-600: #c06d1a;
+  /* Glut vom Spieß — Wärme, Bestellen-CTA */
+  --color-ember-400: #eb9a52;
+  --color-ember-500: #e5822f;
+  --color-ember-600: #c9661c;
 
-  /* Olivgrün — Vegan/Vegetarisch-Pills */
-  --color-olive-500: #6f7d3f;
-  --color-olive-600: #55622f;
+  /* Olivenöl / Kräuter — sekundär, Veggie-Tags */
+  --color-olive-500: #7a6f38;
+  --color-olive-600: #5f5729;
 
-  --font-display: var(--font-baloo);
-  --font-sans: var(--font-nunito);
+  --font-display: var(--font-bricolage);
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
 
-  --animate-spit: spit-spin 9s linear infinite;
   --animate-ember: ember-pulse 4s ease-in-out infinite;
-
-  @keyframes spit-spin {
-    to {
-      transform: rotateY(360deg);
-    }
-  }
 
   @keyframes ember-pulse {
     0%,
@@ -117,7 +112,6 @@ body {
   html {
     scroll-behavior: auto;
   }
-  .animate-spit,
   .animate-ember {
     animation: none !important;
   }

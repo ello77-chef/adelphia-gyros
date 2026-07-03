@@ -1,19 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Baloo_2, Nunito } from "next/font/google";
+import { Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import StructuredData from "@/components/StructuredData";
 
-// Rundes, freundliches Display-Font für Überschriften …
-const baloo = Baloo_2({
-  variable: "--font-baloo",
+// Charaktervolle Grotesk als Display-Font (sparsam eingesetzt).
+// Body läuft auf System-Fonts (kein zweiter Webfont → Performance).
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
-});
-
-// … und ein rundes, gut lesbares Sans für den Fließtext.
-const nunito = Nunito({
-  variable: "--font-nunito",
-  subsets: ["latin"],
+  weight: ["600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -38,7 +33,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f5f9fd",
+  themeColor: "#f0e7d5",
 };
 
 export default function RootLayout({
@@ -49,7 +44,7 @@ export default function RootLayout({
   return (
     <html
       lang="de"
-      className={`${nunito.variable} ${baloo.variable} h-full antialiased`}
+      className={`${bricolage.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-cream-50 text-ink">
         <StructuredData />

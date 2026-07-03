@@ -7,10 +7,10 @@ export default function GyrosSpit({ className = "" }: { className?: string }) {
   return (
     <div className={`relative ${className}`} aria-hidden>
       {/* Warmes Glut-Leuchten dahinter */}
-      <div className="animate-ember pointer-events-none absolute inset-0 -z-10 rounded-full bg-[radial-gradient(circle_at_50%_45%,rgba(255,255,255,0.5)_0%,rgba(127,179,227,0.35)_45%,transparent_70%)] blur-2xl" />
+      <div className="animate-ember pointer-events-none absolute inset-0 -z-10 rounded-full bg-[radial-gradient(circle_at_50%_48%,rgba(245,178,110,0.6)_0%,rgba(229,130,47,0.32)_45%,transparent_72%)] blur-2xl" />
 
-      <div className="[perspective:900px]">
-        <div className="animate-spit [transform-style:preserve-3d] mx-auto w-full">
+      <div>
+        <div className="mx-auto w-full">
           <svg viewBox="0 0 300 400" className="h-auto w-full drop-shadow-2xl">
             <defs>
               <linearGradient id="meat" x1="0" y1="0" x2="1" y2="1">
